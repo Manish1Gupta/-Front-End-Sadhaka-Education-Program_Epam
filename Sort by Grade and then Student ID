@@ -1,0 +1,82 @@
+Sort by Grade and then Student ID
+Write a program to sort an array of Students. Sort Students by its Grade and then by their Student ID.
+
+Refer to Student class.
+
+The Sort Method should the Array of students has the order specified.
+
+
+CODE:- 👇
+#include <iostream>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+class Student {
+public:
+    int id;
+    string name;
+    int grade;
+
+    // Constructor
+    Student(int id, string name, int grade) {
+        this->id = id;
+        this->name = name;
+        this->grade = grade;
+    }
+};
+
+// Comparator function to sort first by Grade, then by ID
+bool compareStudents(const Student &a, const Student &b) {
+    if (a.grade != b.grade) {
+        return a.grade < b.grade; // Sort by grade (ascending)
+    }
+    return a.id < b.id; // If grades are the same, sort by ID (ascending)
+}
+
+void sortStudents(vector<Student> &students) {
+    sort(students.begin(), students.end(), compareStudents);
+}
+
+// Function to print the sorted students
+void printStudents(const vector<Student> &students) {
+    for (const auto &student : students) {
+        cout << "ID: " << student.id << ", Name: " << student.name << ", Grade: " << student.grade << endl;
+    }
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of students: ";
+    cin >> n;
+
+    vector<Student> students;
+
+    // Taking input from user
+    for (int i = 0; i < n; i++) {
+        int id, grade;
+        string name;
+        
+        cout << "Enter Student " << i + 1 << " ID: ";
+        cin >> id;
+        cin.ignore(); // Ignore newline character to handle name input properly
+        
+        cout << "Enter Student " << i + 1 << " Name: ";
+        getline(cin, name);
+        
+        cout << "Enter Student " << i + 1 << " Grade: ";
+        cin >> grade;
+
+        students.push_back(Student(id, name, grade));
+    }
+
+    // Sorting students based on Grade and then ID
+    sortStudents(students);
+
+    // Displaying sorted students
+    cout << "\nSorted Students:\n";
+    printStudents(students);
+
+    return 0;
+}
