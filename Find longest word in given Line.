@@ -1,0 +1,39 @@
+#include <iostream>
+#include <sstream>
+using namespace std;
+
+string findLongestWord(const string &line) {
+    string word, longestWord = "";
+    stringstream ss(line);  // Convert string into a stream
+
+    // Extract words from the input line
+    while (ss >> word) {
+        if (word.length() > longestWord.length()) {
+            longestWord = word;
+        }
+    }
+
+    return longestWord;  // Return the longest word found
+}
+
+int main() {
+    string line;
+    getline(cin, line);  // Read the full input line including spaces
+
+    if (line.empty()) {
+        cout << "No words provided" << endl;  // Handle empty input case
+    } else {
+        cout << findLongestWord(line) << endl;
+    }
+
+    return 0;
+}
+
+
+
+....................................................
+..........................................................
+Example:  Input:-  hello world qwerty1234
+
+output: qwerty1234
+
