@@ -1,0 +1,58 @@
+#include <iostream>
+#include <sstream>
+using namespace std;
+
+// Function to count vowels in a word
+int countVowels(const string &word) {
+    int count = 0;
+    for (char ch : word) {
+        ch = tolower(ch);  // Convert to lowercase for uniform comparison
+        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+            count++;
+        }
+    }
+    return count;
+}
+
+// Function to find the word with the most vowels
+string findWordWithMostVowels(const string &line) {
+    stringstream ss(line);
+    string word, maxVowelWord;
+    int maxVowels = 0;
+
+    while (ss >> word) {
+        int vowelCount = countVowels(word);
+        if (vowelCount > maxVowels) {
+            maxVowels = vowelCount;
+            maxVowelWord = word;
+        }
+    }
+    
+    return maxVowelWord;
+}
+
+int main() {
+    string line;
+    cout << "Enter a sentence: ";
+    getline(cin, line);
+
+    string result = findWordWithMostVowels(line);
+    cout << "Word with the greatest number of vowels: " << result << endl;
+
+    return 0;
+}
+
+
+...................................................................................................
+..................................................................................................
+Example Input/Output
+Input:
+Enter a sentence: beautiful education world
+
+
+Output:
+Word with the greatest number of vowels: education
+
+
+...................................................................................................
+..................................................................................................
