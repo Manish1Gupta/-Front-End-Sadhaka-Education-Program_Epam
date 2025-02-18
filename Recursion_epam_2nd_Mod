@@ -1,0 +1,236 @@
+Introduction to Recursion
+
+
+
+.............................................................................
+.............................................................................
+
+Recursion
+﻿
+
+Agenda
+
+What is Recursion
+Recursive Methods
+Analysis
+Goal
+
+Learning about recursive algorithms
+Uses of Recursive Algorithms
+Memory usage of recursive algorithms
+
+.............................................................................
+.............................................................................
+1. What is Recursion?
+Recursion is a programming technique where a function calls itself to solve a smaller version of the original problem. It continues until a base condition is met, which stops further recursive calls.
+
+
+
+Recursion is a process that calls itself directly or indirectly to solve a problem by breaking it down into smaller sub-problems
+
+
+
+
+.............................................................................
+.............................................................................
+
+Basic Example:
+#include <iostream>
+using namespace std;
+
+void countDown(int n) {
+    if (n == 0) {  // Base Case
+        cout << "Done!" << endl;
+        return;
+    }
+    cout << n << " ";
+    countDown(n - 1);  // Recursive Call
+}
+
+int main() {
+    countDown(5);
+    return 0;
+}
+Explanation
+The function countDown(n) prints n and calls itself with n-1.
+The recursion stops when n == 0 (Base Case).
+
+.............................................................................
+.............................................................................
+
+Example: Factorial using Recursion:
+
+Factorial of a number 
+n
+!
+n! is defined as:
+
+n!=n×(n−1)×(n−2)×⋯×1
+Recursive formula:
+n!=n×(n−1)!
+.............................................................................
+.............................................................................
+
+Recursive Methods
+Types of Recursive Functions
+Direct Recursion: A function calls itself directly.
+
+void func() {
+    func();  // Direct call
+}
+Indirect Recursion: A function calls another function, which then calls the original function.
+
+void A(int n);
+void B(int n);
+
+void A(int n) {
+    if (n <= 0) return;
+    cout << "A: " << n << endl;
+    B(n - 1);
+}
+
+void B(int n) {
+    if (n <= 0) return;
+    cout << "B: " << n << endl;
+    A(n - 2);
+}
+
+int main() {
+    A(5);
+    return 0;
+}
+
+
+.............................................................................
+.............................................................................
+
+
+Tail Recursion: The recursive call is the last statement in the function.
+
+void tailRecursion(int n) {
+    if (n == 0) return;
+    cout << n << " ";
+    tailRecursion(n - 1);
+}
+
+.............................................................................
+.............................................................................
+
+
+Head Recursion: The recursive call is the first statement in the function.
+
+void headRecursion(int n) {
+    if (n == 0) return;
+    headRecursion(n - 1);
+    cout << n << " ";
+}
+.............................................................................
+.............................................................................
+
+Tree Recursion: A function makes multiple recursive calls.
+
+void treeRecursion(int n) {
+    if (n <= 0) return;
+    cout << n << " ";
+    treeRecursion(n - 1);
+    treeRecursion(n - 2);
+}
+.............................................................................
+.............................................................................
+
+
+Nested Recursion: The recursive call itself has another recursive function as an argument.
+
+int nestedRec(int n) {
+    if (n > 100) return n - 10;
+    return nestedRec(nestedRec(n + 11));
+}
+
+.............................................................................
+.............................................................................
+
+
+3. Uses of Recursive Algorithms
+Recursion is commonly used in:
+
+Mathematical Computations
+Factorial, Fibonacci, Exponentiation, GCD
+Data Structures
+Traversing Trees, Graphs, Linked Lists
+Sorting & Searching
+Merge Sort, Quick Sort, Binary Search
+Backtracking
+Sudoku Solver, N-Queens Problem
+Divide & Conquer
+Merge Sort, Fast Exponentiation
+
+
+.............................................................................
+.............................................................................
+
+
+4. Memory Usage in Recursive Algorithms
+Each recursive function call creates a new stack frame in memory.
+
+Example: Factorial Function
+int factorial(int n) {
+    if (n == 0) return 1; // Base case
+    return n * factorial(n - 1);
+}
+
+.............................................................................
+.............................................................................
+
+
+Memory Stack Representation (factorial(4))
+factorial(4)
+ -> factorial(3)
+    -> factorial(2)
+       -> factorial(1)
+          -> factorial(0) [returns 1]
+       -> returns 1 * 1 = 1
+    -> returns 2 * 1 = 2
+ -> returns 3 * 2 = 6
+-> returns 4 * 6 = 24
+Each recursive call takes extra memory for function parameters, local variables, and return addresses.
+
+Space Complexity
+Recursive Approach: O(n) (due to function call stack)
+Iterative Approach: O(1) (constant space usage)
+
+
+.............................................................................
+.............................................................................
+
+
+5. Analysis of Recursive Algorithms
+Time Complexity
+Simple Recursion: O(n)
+Tree Recursion: O(2ⁿ) (e.g., Fibonacci)
+Divide & Conquer: O(log n) (e.g., Binary Search)
+Optimizations
+Memoization (Storing previously computed results)
+Tail Recursion Optimization (Compiler optimization for tail recursion)
+Using Iteration Instead of Recursion (Avoid stack overflow)
+
+
+
+.............................................................................
+.............................................................................
+
+
+Conclusion
+Recursion is a powerful tool but can be inefficient due to high memory usage.
+Some recursive algorithms can be optimized with memoization or converted to iterative solutions.
+Understanding recursion helps in problem-solving, especially in competitive programming.
+
+
+.............................................................................
+.............................................................................
+
+NOTE:-  anything recursive can be implemented
+iteratively (i.e, withhout recursion.)
+I both can optimize fibonacci
+
+
+
