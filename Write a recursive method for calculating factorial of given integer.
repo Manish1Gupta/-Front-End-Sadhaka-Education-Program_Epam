@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+class RecursiveFactorialSolution {
+public:
+    // Method to calculate factorial using recursion
+    int factorial(int n) {
+        if (n < 0) {
+            return -1; // Return -1 for negative numbers, as factorial is undefined
+        }
+        if (n == 0 || n == 1) {
+            return 1; // Base case: factorial of 0 or 1 is 1
+        }
+        return n * factorial(n - 1); // Recursive call
+    }
+};
+
+int main() {
+    RecursiveFactorialSolution solution;
+
+    // Test cases
+    cout << "Factorial of 0: " << solution.factorial(0) << endl; // Output: 1
+    cout << "Factorial of 1: " << solution.factorial(1) << endl; // Output: 1
+    cout << "Factorial of 2: " << solution.factorial(2) << endl; // Output: 2
+    cout << "Factorial of 3: " << solution.factorial(3) << endl; // Output: 6
+    cout << "Factorial of 5: " << solution.factorial(5) << endl; // Output: 120
+    cout << "Factorial of -3: " << solution.factorial(-3) << endl; // Output: -1 (invalid)
+
+    return 0;
+}
+
+
