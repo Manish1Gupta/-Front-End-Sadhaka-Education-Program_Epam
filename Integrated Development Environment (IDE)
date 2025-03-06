@@ -1,0 +1,29 @@
+Introduction
+In this lesson, the concept of the integrated development environment (IDE), its properties and features of different code editors are discussed.
+The development of projects using online editors and simplification of working with code using additional modules are described.
+The detailed instructions on installing the IDE and configuring it before the start are given in this lesson too.
+
+
+What is an Integrated Development Environment (IDE)?
+Any modern IDE includes tools for compiling or interpreting, automating builds, and debugging code. Some development environments have various tools for object-oriented programming,
+which is increasingly popular in Web development.
+
+Unlike most editors, IDEs usually support not only processing of individual source code files, but also full-fledged projects, 
+as well as their specific options, which may include links to external software libraries, editor customization, version control,
+and debugging options. Each IDE has its own functionality and a set of plug-ins that greatly simplify the process of developing programs and reduce the developer's involvement in routine tasks. Also,
+there is a functionality that is used for the development of the back end (for example, for Node.js, Java or .NET).
+
+
+
+
+Online Code Editors
+Online code editor is a tool, which is on a remote server and is accessed and used through a browser. 
+Some online code editors have functionality that is similar to a regular text editor, while others are more like full-fledged IDEs. 
+There are various online services that allow to create Web pages and provide the ability to execute HTML, CSS and JS code; work together; save work results.
+
+Click on the dropdown lists to view the main online editors.
+
+JSFiddle
+CodePen
+JSBin
+Repl.it
