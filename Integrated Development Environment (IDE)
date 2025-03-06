@@ -23,6 +23,46 @@ There are various online services that allow to create Web pages and provide the
 
 Click on the dropdown lists to view the main online editors.
 
+
+
+
+
+
+
+
+
+
+
+
+
+Notepad ++ is a free source code editor that supports multiple languages. Notepad++ is written in C++, 
+which ensures fast execution speed and small program size. The basic functionality can be extended both through plugins and through third-party modules - compilers and preprocessors.
+
+
+
+
+
+Atom is a free text editor for Linux, macOS, Windows. It has an open source code and supports most plugins written in Node.js,
+they are free software, developed and maintained by the community.
+
+
+
+
+Sublime Text is a text editor with syntax highlighting that supports a large number of programming languages and Python plugins. 
+The code is not open source. It is a commercial project.
+
+
+
+Visual Studio Code is a lightweight source code editor. It is available for Windows, macOS and Linux, while supporting: JavaScript,
+TypeScript and Node.js and has many extensions for other languages (such as C++, C#, Java, Python, PHP, Go) and runtimes (such as .NET and Unity).
+
+
+Adobe Brackets is an open source text editor. It is available for Windows, macOS and Linux, focused on working with HTML, CSS and JavaScript, with a focus on visual tools..
+
+
+
+
+
 JSFiddle
 CodePen
 JSBin
