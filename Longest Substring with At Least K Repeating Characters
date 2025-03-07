@@ -1,0 +1,60 @@
+Given a string s and an integer k, return the length of the longest substring of s such that the frequency of each character in this substring is greater than or equal to k.
+
+Example 1:
+Input: s = "aaabb", k = 3
+
+Output: 3
+
+Explanation: The longest substring is "aaa", as 'a' is repeated 3 times.
+
+Example 2:
+Input: s = "ababbc", k = 2
+
+Output: 5
+
+Explanation: The longest substring is "ababb", as 'a' is repeated 2 times and 'b' is repeated 3 times.
+
+
+CODE:- #include <iostream>
+#include <unordered_map>
+#include <vector>
+
+using namespace std;
+
+class Solution {
+public:
+    int longestSubstring(string s, int k) {
+        return divideAndConquer(s, 0, s.size(), k);
+    }
+
+private:
+    int divideAndConquer(const string &s, int left, int right, int k) {
+        if (right - left < k) return 0; // If substring length is smaller than k, it's invalid
+        
+        unordered_map<char, int> freq;
+        for (int i = left; i < right; i++) {
+            freq[s[i]]++;
+        }
+
+        // Find first character that is invalid (appears < k times)
+        for (int i = left; i < right; i++) {
+            if (freq[s[i]] < k) {
+                // Split and recursively solve both halves
+                int next = i + 1;
+                while (next < right && freq[s[next]] < k) next++;
+                return max(divideAndConquer(s, left, i, k), divideAndConquer(s, next, right, k));
+            }
+        }
+
+        return right - left; // If all characters meet the condition, return substring length
+    }
+};
+
+// Example usage
+int main() {
+    Solution solution;
+    cout << solution.longestSubstring("aaabb", 3) << endl;   // Output: 3
+    cout << solution.longestSubstring("ababbc", 2) << endl; // Output: 5
+    return 0;
+}
+
